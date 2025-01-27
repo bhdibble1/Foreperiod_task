@@ -1,0 +1,76 @@
+4.5324 	DEBUG 	Fullscreen settings ignored as running in pilot mode.
+4.5331 	INFO 	Loaded monitor calibration from ['2023_11_17 03:59']
+5.1956 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002A03763EDA0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002A03763ED40>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=False, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000002A037710610>, multiSample=False, name='window1', numSamples=2, pos=[880.0, 500.0], screen=0, size=array([800, 600]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.1957 	EXP 	window1: backgroundImage = ''
+5.1957 	EXP 	window1: backgroundFit = 'none'
+5.2134 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2143 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2150 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2159 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2167 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2171 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2178 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2186 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2188 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2191 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2197 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2204 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2209 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2215 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2220 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2227 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2233 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2237 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2241 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2248 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2252 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2256 	DEBUG 	Uploading Texture Font fontname to graphics card
+5.2383 	DEBUG 	Upload of Texture Font fontname complete
+5.2516 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2526 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2535 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+5.2538 	DEBUG 	Uploading Texture Font fontname to graphics card
+5.2975 	DEBUG 	Upload of Texture Font fontname complete
+5.2991 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+5.2991 	EXP 	window1: recordFrameIntervals = False
+5.5040 	EXP 	window1: recordFrameIntervals = True
+5.5837 	WARNING 	t of last frame was 21.09ms (=1/47)
+5.6062 	WARNING 	t of last frame was 22.48ms (=1/44)
+5.6521 	WARNING 	t of last frame was 24.02ms (=1/41)
+5.7088 	WARNING 	t of last frame was 23.82ms (=1/41)
+5.8958 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+6.8505 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+6.8556 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8561 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8568 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8576 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8583 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8592 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8597 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8604 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8612 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8620 	DEBUG 	TextBox2 loaded 1 chars with 0 blanks and 1 valid
+6.8622 	DEBUG 	Uploading Texture Font fontname to graphics card
+6.8628 	DEBUG 	Upload of Texture Font fontname complete
+6.8720 	WARNING 	launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+8.5493 	INFO 	keyboard.Keyboard is using iohub backend.
+8.5493 	INFO 	keyboard.Keyboard is using iohub backend.
+8.5494 	EXP 	Foreperiod_task: status = STARTED
+8.6127 	EXP 	Created Welcome_Text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='Welcome_Text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+8.6194 	EXP 	Created PLUS_FP = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-1.0, draggable=False, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='PLUS_FP', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.05, 0.05]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+8.6207 	EXP 	Created polygon = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-2.0, draggable=False, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='polygon', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), units='height', vertices=ndarray(...), win=Window(...), windingRule=None)
+8.6215 	EXP 	Created Photodiode_polygon = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-4.0, draggable=False, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='Photodiode_polygon', opacity=1, ori=0.0, pos=array([ 0.735, -0.44 ]), size=array([0.11, 0.11]), units='height', vertices=ndarray(...), win=Window(...))
+8.6222 	EXP 	Created Photodiode_plus = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-5.0, draggable=False, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='Photodiode_plus', opacity=1, ori=0.0, pos=array([ 0.735, -0.44 ]), size=array([0.11, 0.11]), units='height', vertices=ndarray(...), win=Window(...))
+8.6227 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([ 0.  , -0.35]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+8.6234 	EXP 	Created Photodiode_2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-2.0, draggable=False, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='Photodiode_2', opacity=1, ori=0.0, pos=array([ 0.735, -0.44 ]), size=array([0.11, 0.11]), units='height', vertices=ndarray(...), win=Window(...))
+8.6258 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='text_3', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+0.0473 	EXP 	Welcome_Text: autoDraw = True
+2.2713 	DATA 	Mouse: Left button down, pos=(242,390)
+2.2724 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+2.2728 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+2.3159 	DEBUG 	Saving data for Foreperiod_task ExperimentHandler
+2.3169 	INFO 	saved data to C:\Users\bhdib\OneDrive\Desktop\Foreperiod_task\data/552367_Foreperiod_task_2025-01-26_10h51.18.873.psydat
+2.3176 	INFO 	saved data to 'C:\\Users\\bhdib\\OneDrive\\Desktop\\Foreperiod_task\\data/552367_Foreperiod_task_2025-01-26_10h51.18.873.csv'

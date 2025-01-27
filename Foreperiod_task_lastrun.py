@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1post4),
-    on December 03, 2024, at 13:49
+This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
+    on January 26, 2025, at 17:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -33,13 +33,15 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
+# Run 'Before Experiment' code from code_2
+DEBUG = True
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2024.2.1post4'
+psychopyVersion = '2024.2.4'
 expName = 'Foreperiod_task'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
@@ -126,7 +128,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\swannlab\\Documents\\Foreperiod_task\\Foreperiod_task_lastrun.py',
+        originPath='C:\\Users\\bhdib\\OneDrive\\Desktop\\Foreperiod_task\\Foreperiod_task_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -194,11 +196,11 @@ def setupWindow(expInfo=None, win=None):
         # if not given a window to setup, make one
         win = visual.Window(
             size=_winSize, fullscr=_fullScr, screen=0,
-            winType='pyglet', allowStencil=False,
+            winType='pyglet', allowGUI=False, allowStencil=False,
             monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
             blendMode='avg', useFBO=True,
-            units='height', 
+            units='height',
             checkTiming=False  # we're going to do this ourselves in a moment
         )
     else:
@@ -213,7 +215,6 @@ def setupWindow(expInfo=None, win=None):
         if win._monitorFrameRate is None:
             win._monitorFrameRate = win.getActualFrameRate(infoMsg='Attempting to measure frame rate of screen, please wait...')
         expInfo['frameRate'] = win._monitorFrameRate
-    win.mouseVisible = False
     win.hideMessage()
     # show a visual indicator if we're in piloting mode
     if PILOTING and prefs.piloting['showPilotingIndicator']:
@@ -341,6 +342,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
     # mark experiment as started
     thisExp.status = STARTED
+    # make sure window is set to foreground to prevent losing focus
+    win.winHandle.activate()
     # make sure variables created by exec are available globally
     exec = environmenttools.setExecEnvironment(globals())
     # get device handles from dict of input devices
@@ -382,53 +385,88 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Experiment' code from code_2
     import serial
     import time
+    import random
     
-    # Initialize the serial port (you may need to change the 'COM3' to match your setup)
-    port = serial.Serial('COM4', baudrate=115200)
+    if not DEBUG:
+        port = serial.Serial('COM4', baudrate=115200)  # Only initialize port in lab
+    else:
+        port = None  # Disable port for testing
     
     # Define a function to send a trigger
     def send_trigger(trigger_code):
-        port.write(trigger_code.to_bytes(1, 'big'))  # Send the trigger code as a byte
-        time.sleep(0.01)  # Pause to ensure the trigger is sent
+        if port:  # Only send triggers if port is initialized Send the trigger code as a byte
+            port.write(trigger_code.to_bytes(1, 'big'))
+            time.sleep(0.01)  # Pause to ensure the trigger is sent
+        else:
+            print("Trigger skipped (DEBUG mode)")
     
-    trial_number = 0
+    
+        
+    
+    # Set total number of trials
+    total_trials = 800  # Adjust as needed
+    num_long = int(total_trials * 0.45)
+    num_short = int(total_trials * 0.45)
+    num_surprise = total_trials - num_long - num_short  # Ensures no rounding issues
+    
+    # Create a list of trials with their attributes
+    trial_list = []
+    
+    # Populate the list with "long" trials
+    for _ in range(num_long):
+        trial_list.append({
+            'type': 'long',
+            'stim_dur': 2,
+            'trigger_f': 4,
+            'trigger_p': 5,
+            'mouse_trigger': [0x06]
+        })
+    
+    # Populate the list with "short" trials
+    for _ in range(num_short):
+        trial_list.append({
+            'type': 'short',
+            'stim_dur': 0.5,
+            'trigger_f': 1,
+            'trigger_p': 2,
+            'mouse_trigger': [0x03]
+        })
+    
+    # Populate the list with "surprise" trials
+    for _ in range(num_surprise):
+        trial_list.append({
+            'type': 'surprise',
+            'stim_dur': random.uniform(1, 1.5),  # Random duration for surprise trials
+            'trigger_f': 7,
+            'trigger_p': 8,
+            'mouse_trigger': [0x09]
+        })
+    
+    # Shuffle the trials
+    random.shuffle(trial_list)
+    
+    # Task setup
+    break_text = 'You have reached a break. Tell the experimenter when you are ready to continue.'
+    current_trial = 1
     break_text = 'You have reached a break. Tell the experimenter when you are ready to continue'
-    import random
-    percent = 0
-    stim_dur = 0
     message = 'none'
     task = 'task'
-    randint = 0
     avgrsp = 'N/A'
     rspnum = 0
     rsptot = 0
-    percent = random.randint(1,100)
-    trigger_f = 1
-    trigger_p = 4
     
-    
-    if percent <= 90:
-        task = 'normal'
-    if percent > 90:
-        task = 'surprise'
-    if task == 'surprise':
-        stim_dur = random.uniform(1, 1.5)
-        trigger_f = 7
-        trigger_p = 8
-        mouse_trigger = [0x09]
-    if task == 'normal':
-        randint = random.randint(1,2)
-        if randint == 1:
-            stim_dur = 0.5
-            trigger_f = 1
-            trigger_p = 2
-            mouse_trigger = [0x03]
-        if randint == 2:
-            stim_dur = 2
-            trigger_f = 4
-            trigger_p = 5
-            mouse_trigger = [0x06]
-            
+    # Loop through the trials
+    for trial_number, trial in enumerate(trial_list, start=1):
+        # Access the trial's attributes
+        trial_type = trial['type']
+        stim_dur = trial['stim_dur']
+        trigger_f = trial['trigger_f']
+        trigger_p = trial['trigger_p']
+        mouse_trigger = trial['mouse_trigger']
+        
+        # Debugging print to confirm the trial details
+        print(f"Trial {trial_number}: {trial_type}, Duration: {stim_dur}, Triggers: {trigger_f}, {trigger_p}")
+        
     
     PLUS_FP = visual.ShapeStim(
         win=win, name='PLUS_FP', vertices='cross',
@@ -744,31 +782,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             
             
+            selected_trial = trial  # No need to access the list again since `trial` is the current element
             
-            
-            percent = random.randint(1,100)
-            
-            if percent <= 90:
-                task = 'normal'
-            if percent > 90:
-                task = 'surprise'
-            if task == 'surprise':
-                stim_dur = random.uniform(1, 1.5)
-                trigger_f = 7
-                trigger_p = 8
-                mouse_trigger = [0x09]
-            if task == 'normal':
-                randint = random.randint(1,2)
-                if randint == 1:
-                    stim_dur = 0.5
-                    trigger_f = 1
-                    trigger_p = 2
-                    mouse_trigger = [0x03]
-                if randint == 2:
-                    stim_dur = 2
-                    trigger_f = 4
-                    trigger_p = 5
-                    mouse_trigger = [0x04]
+            # Access the attributes of the selected trial
+            trial_type = selected_trial['type']
+            stim_dur = selected_trial['stim_dur']
+            trigger_f = selected_trial['trigger_f']
+            trigger_p = selected_trial['trigger_p']
+            mouse_trigger = selected_trial['mouse_trigger']
             # setup some python lists for storing info about the mouse
             mouse.x = []
             mouse.y = []
@@ -810,15 +831,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
                 # Run 'Each Frame' code from code_2
-                if polygon.status == STARTED and not polygon_pulse_started: #Change 'stimulus' to match the name of the component that you want to send the trigger for
-                    win.callOnFlip(port.write, trigger_p.to_bytes(1, 'big'))
-                    stimulus_pulse_start_time = globalClock.getTime()
-                    polygon_pulse_started  = True
-                
-                if PLUS_FP.status == STARTED and not plus_pulse_started: #Change 'stimulus' to match the name of the component that you want to send the trigger for
-                    win.callOnFlip(port.write, trigger_f.to_bytes(1, 'big'))
-                    stimulus_pulse_start_time = globalClock.getTime()
-                    plus_pulse_started  = True
+                if port: 
+                    if polygon.status == STARTED and not polygon_pulse_started: #Change 'stimulus' to match the name of the component that you want to send the trigger for
+                        win.callOnFlip(port.write, trigger_p.to_bytes(1, 'big'))
+                        stimulus_pulse_start_time = globalClock.getTime()
+                        polygon_pulse_started  = True
+                if port:
+                    if PLUS_FP.status == STARTED and not plus_pulse_started: #Change 'stimulus' to match the name of the component that you want to send the trigger for
+                        win.callOnFlip(port.write, trigger_f.to_bytes(1, 'big'))
+                        stimulus_pulse_start_time = globalClock.getTime()
+                        plus_pulse_started  = True
                 
                 
                 # *PLUS_FP* updates
@@ -1039,7 +1061,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             continueRoutine = True
             # update component parameters for each repeat
             # Run 'Begin Routine' code from code_3
-            port.write(mouse_trigger)
+            if port:  # Only send triggers if port is initialized
+                port.write(mouse_trigger)
+            else:
+                print("Trigger skipped (DEBUG mode)")
+            
+            
             
             pause_dur = random.uniform(1.2,1.7)
             rspnum += 1

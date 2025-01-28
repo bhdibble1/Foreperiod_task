@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
-    on January 26, 2025, at 17:41
+This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1post4),
+    on January 28, 2025, at 11:37
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -34,14 +34,14 @@ import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
 # Run 'Before Experiment' code from code_2
-DEBUG = True
+DEBUG = False
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2024.2.4'
+psychopyVersion = '2024.2.1post4'
 expName = 'Foreperiod_task'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
@@ -128,7 +128,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\bhdib\\OneDrive\\Desktop\\Foreperiod_task\\Foreperiod_task_lastrun.py',
+        originPath='C:\\Users\\swannlab\\Documents\\Foreperiod_task\\Foreperiod_task_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -196,11 +196,11 @@ def setupWindow(expInfo=None, win=None):
         # if not given a window to setup, make one
         win = visual.Window(
             size=_winSize, fullscr=_fullScr, screen=0,
-            winType='pyglet', allowGUI=False, allowStencil=False,
+            winType='pyglet', allowStencil=False,
             monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
             blendMode='avg', useFBO=True,
-            units='height',
+            units='height', 
             checkTiming=False  # we're going to do this ourselves in a moment
         )
     else:
@@ -215,6 +215,7 @@ def setupWindow(expInfo=None, win=None):
         if win._monitorFrameRate is None:
             win._monitorFrameRate = win.getActualFrameRate(infoMsg='Attempting to measure frame rate of screen, please wait...')
         expInfo['frameRate'] = win._monitorFrameRate
+    win.mouseVisible = False
     win.hideMessage()
     # show a visual indicator if we're in piloting mode
     if PILOTING and prefs.piloting['showPilotingIndicator']:
@@ -342,8 +343,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
     # mark experiment as started
     thisExp.status = STARTED
-    # make sure window is set to foreground to prevent losing focus
-    win.winHandle.activate()
     # make sure variables created by exec are available globally
     exec = environmenttools.setExecEnvironment(globals())
     # get device handles from dict of input devices
@@ -782,8 +781,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             
             
-            selected_trial = trial  # No need to access the list again since `trial` is the current element
-            
+            selected_trial = trial_list[current_trial]  # No need to access the list again since `trial` is the current element
             # Access the attributes of the selected trial
             trial_type = selected_trial['type']
             stim_dur = selected_trial['stim_dur']
@@ -1070,6 +1068,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             pause_dur = random.uniform(1.2,1.7)
             rspnum += 1
+            current_trial += 1
             rsptot += mouse.time[0]-stim_dur
             if avgrsp == 'N/A':
                 avgrsp = mouse.time[0]-stim_dur
